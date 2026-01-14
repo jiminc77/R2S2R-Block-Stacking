@@ -4,10 +4,9 @@
 
 A robust robotic manipulation system that stacks blocks on unstable towers using multi-view perception, Isaac Lab physics simulation, and domain randomization for reliable sim-to-real transfer.
 
-![Demo](Demo.GIF)
+![Demo](Demo.gif)
 
 **[▶️ Watch Full Demo Video on YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)**
-
 
 ## Overview
 
