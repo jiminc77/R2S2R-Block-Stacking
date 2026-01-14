@@ -1,4 +1,4 @@
-# r2s2r_block_stacking
+# R2S2R Block Stacking
 
 **Real-to-Sim-to-Real Block Stacking with UR5e Digital Twin**
 
@@ -8,7 +8,6 @@ A robust robotic manipulation system that stacks blocks on unstable towers using
 
 **[▶️ Watch Full Demo Video on YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)**
 
----
 
 ## Overview
 
@@ -20,7 +19,6 @@ This project demonstrates **sim-to-real transfer** for contact-rich manipulation
 
 **Key Innovation**: By validating placements in simulation before execution, we achieve high success rates on unstable configurations while minimizing risk to hardware.
 
----
 
 ## System Architecture
 
@@ -63,7 +61,6 @@ This project demonstrates **sim-to-real transfer** for contact-rich manipulation
 └──────────────────┘                      └──────────────────┘
 ```
 
----
 
 ## Quick Start
 
@@ -104,7 +101,6 @@ cd robot_control_pc/scripts
 python3 run_robot_stacking.py
 ```
 
----
 
 ## Technical Details
 
@@ -149,5 +145,3 @@ python3 run_robot_stacking.py
 - Simulate 60 timesteps (1 second physics rollout)
 - Calculate success rate: blocks remain stable (Z change < 30mm)
 - Select: Success rate > 80%, closest to tower COM
-
----
