@@ -16,9 +16,6 @@ This project demonstrates **sim-to-real transfer** for contact-rich manipulation
 2. **Simulating thousands of placement candidates** in Isaac Lab (8184 parallel environments with domain randomization)
 3. **Executing only verified placements** on the real robot (95%+ success rate)
 
-**Key Innovation**: By validating placements in simulation before execution, we achieve high success rates on unstable configurations while minimizing risk to hardware.
-
-
 ## System Architecture
 
 ```
@@ -93,7 +90,7 @@ This executes:
 2. Isaac Lab policy search (8184 parallel environments)
 3. Waits for robot controller to execute placement
 
-### 4. Execute Robot Placement (Optional - Auto-triggered)
+### 4. Execute Robot Placement
 ```bash
 # On Control PC
 cd robot_control_pc/scripts
