@@ -1,0 +1,40 @@
+FROM nvcr.io/nvidia/isaac-sim:4.2.0
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV ISAAC_LAB_VERSION=v1.3.0
+ENV RSL_RL_VERSION=v1.0.2
+ENV TERM=xterm
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    git \
+    cmake \
+    build-essential && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /root
+RUN git clone https://github.com/isaac-sim/IsaacLab.git && \
+    cd IsaacLab && \
+    git checkout ${ISAAC_LAB_VERSION} && \
+    ln -s /isaac-sim _isaac_sim
+
+WORKDIR /root/IsaacLab
+ENV PATH="/isaac-sim:$PATH"
+ENV PYTHON=/isaac-sim/python.sh
+ENV PYTHONPATH="/isaac-sim/kit/extscore/omni.client:/isaac-sim/exts/omni.isaac.ros_bridge/noetic/lib/python3.10/site-packages:$PYTHONPATH"
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/isaac-sim/exts/omni.isaac.ros_bridge/noetic/lib
+ENV ROS_DISTRO=noetic
+
+RUN /isaac-sim/python.sh -m ensurepip --default-pip && \
+    /isaac-sim/python.sh -m pip install --upgrade pip && \
+    /isaac-sim/python.sh -m pip install warp-lang
+
+RUN sed -i "s|git+https://github.com/leggedrobotics/rsl_rl.git|git+https://github.com/leggedrobotics/rsl_rl.git@${RSL_RL_VERSION}|g" source/extensions/omni.isaac.lab_tasks/setup.py
+
+RUN ./isaaclab.sh --install
+
+RUN echo "alias python='/isaac-sim/python.sh'" >> /root/.bashrc && \
+    echo "source /isaac-sim/exts/omni.isaac.ros_bridge/noetic/setup.bash" >> /root/.bashrc && \
+    ln -s /isaac-sim/python.sh /usr/bin/python3
+
+WORKDIR /root/IsaacLab

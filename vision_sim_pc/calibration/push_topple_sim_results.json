@@ -1,0 +1,38 @@
+{
+    "accuracy": 0.3333333333333333,
+    "results": [
+        {
+            "push_height_mm": 40.0,
+            "real_outcome": "stable",
+            "sim_outcome": "stable",
+            "values": {
+                "bot_move_xy": 0.10995841026306152,
+                "top_z": 0.28999990224838257,
+                "bot_z": 0.22999997437000275
+            },
+            "match": true
+        },
+        {
+            "push_height_mm": 75.0,
+            "real_outcome": "top_slides",
+            "sim_outcome": "both_topple",
+            "values": {
+                "bot_move_xy": 0.017600243911147118,
+                "top_z": 0.23002253472805023,
+                "bot_z": 0.22999945282936096
+            },
+            "match": false
+        },
+        {
+            "push_height_mm": 110.0,
+            "real_outcome": "stable",
+            "sim_outcome": "both_topple",
+            "values": {
+                "bot_move_xy": 0.06402260065078735,
+                "top_z": 0.23000000417232513,
+                "bot_z": 0.23001547157764435
+            },
+            "match": false
+        }
+    ]
+}

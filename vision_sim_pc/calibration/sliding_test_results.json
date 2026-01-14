@@ -1,0 +1,46 @@
+{
+    "Block_1": {
+        "block_id": 0,
+        "angles_deg": [
+            23.6,
+            21.3,
+            22.5
+        ],
+        "mean_angle_deg": 22.46666666666667,
+        "std_angle_deg": 0.9392668535736916,
+        "friction_coefficient": 0.41353213303683245
+    },
+    "Block_2": {
+        "block_id": 1,
+        "angles_deg": [
+            23.6,
+            21.3,
+            22.5
+        ],
+        "mean_angle_deg": 22.46666666666667,
+        "std_angle_deg": 0.9392668535736916,
+        "friction_coefficient": 0.41353213303683245
+    },
+    "Block_3": {
+        "block_id": 2,
+        "angles_deg": [
+            23.6,
+            21.3,
+            22.5
+        ],
+        "mean_angle_deg": 22.46666666666667,
+        "std_angle_deg": 0.9392668535736916,
+        "friction_coefficient": 0.41353213303683245
+    },
+    "Block_4": {
+        "block_id": 3,
+        "angles_deg": [
+            23.6,
+            21.3,
+            22.5
+        ],
+        "mean_angle_deg": 22.46666666666667,
+        "std_angle_deg": 0.9392668535736916,
+        "friction_coefficient": 0.41353213303683245
+    }
+}

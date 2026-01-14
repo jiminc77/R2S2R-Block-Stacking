@@ -1,0 +1,12 @@
+{
+    "block_size_m": 0.06,
+    "marker_size_m": 0.04,
+    "offset_x_m": 0.0,
+    "offset_y_m": 0.0,
+    "offset_z_m": 0.03,
+    "offset_xyz_m": [
+        0.0,
+        0.0,
+        0.03
+    ]
+}

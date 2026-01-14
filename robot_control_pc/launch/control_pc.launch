@@ -1,0 +1,38 @@
+<launch>
+    <!-- ARGUMENTS -->
+    <arg name="robot_ip" default="172.27.190.178" doc="IP address of the UR robot"/>
+    <arg name="gripper_port" default="/dev/ttyUSB0" doc="Port for Robotiq Gripper"/>
+    <arg name="kinematics_config" default="$(find digital_twin)/calibration/calibration.yaml" doc="Calibration file"/>
+
+    <!-- 1. UR ROBOT DRIVER -->
+    <arg name="reverse_ip" default="172.27.190.160" doc="IP of the computer running the driver"/>
+    <arg name="headless_mode" default="false" doc="Automatically send URScript to robot (True) or use URCap (False)"/>
+
+    <include file="$(find ur_robot_driver)/launch/ur5e_bringup.launch">
+        <arg name="robot_ip" value="$(arg robot_ip)"/>
+        <arg name="kinematics_config" value="$(arg kinematics_config)"/>
+        <arg name="headless_mode" value="$(arg headless_mode)"/>
+        <arg name="reverse_ip" value="$(arg reverse_ip)"/>
+    </include>
+
+    <!-- 2. MOVEIT (Motion Planning Node) -->
+    <include file="$(find ur5e_moveit_config)/launch/move_group.launch">
+        <arg name="allow_trajectory_execution" value="true"/>
+        <arg name="fake_execution" value="false"/>
+        <arg name="info" value="true"/>
+    </include>
+
+    <!-- 3. ROBOT MOTION ACTION SERVER -->
+    <node pkg="digital_twin" type="robot_motion_action_server.py" name="robot_motion_action_server" output="screen"/>
+
+    <!-- 4. GRIPPER ACTION SERVER -->
+    <node pkg="digital_twin" type="gripper_action_server.py" name="gripper_action_server" output="screen">
+        <param name="port" value="$(arg gripper_port)"/>
+    </node>
+
+    <!-- 5. HAND-EYE TF PUBLISHER (Static Transform) -->
+    <node pkg="digital_twin" type="publish_handeye_tf.py" name="handeye_tf_publisher" output="screen">
+        <param name="config_file" value="$(find digital_twin)/calibration/ur5e_realsense_handeye_calibration_eye_on_hand.yaml"/>
+    </node>
+
+</launch>
