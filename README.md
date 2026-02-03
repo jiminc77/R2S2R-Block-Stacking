@@ -6,7 +6,6 @@ A robust robotic manipulation system that stacks blocks on unstable towers using
 
 ![Demo](Demo.gif)
 
-**[▶️ Watch Full Demo Video on YouTube](https://www.youtube.com/watch?v=W1zcydadmis)**
 [![▶️ Watch Full Demo Video on YouTube](https://img.youtube.com/vi/W1zcydadmis/0.jpg)](https://www.youtube.com/watch?v=W1zcydadmis)
 
 ## Overview
